@@ -1,0 +1,38 @@
+// @import "illu.JPG";
+// @import "painture.JPG";
+// @import "mural.jpg";
+
+.card-menu {
+  width: 595px;
+  height: 895px;
+  background-size: cover;
+
+}
+
+.container-menu {
+  margin: 20px 0;
+}
+
+
+// TesT
+
+
+#test-image-peinture {
+  background-image: url('/assets/painture.JPG');
+
+}
+
+#test-image-mural {
+  background-image: url('/assets/mural.jpg');
+
+}
+
+#test-image-illu {
+  background-image: url('/assets/illu.JPG');
+
+}
+
+
+
+
+// fin de TesT
