@@ -3,9 +3,11 @@
 // @import "mural.jpg";
 
 .card-menu {
-  width: 595px;
+  max-width: 490px;
   height: 895px;
   background-size: cover;
+  min-width: 290px;
+
 
 }
 
