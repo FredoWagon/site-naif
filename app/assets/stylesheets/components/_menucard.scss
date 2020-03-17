@@ -1,40 +1,58 @@
-// @import "illu.JPG";
-// @import "painture.JPG";
-// @import "mural.jpg";
+// Carte menu PEINTURE
 
-.card-menu {
+.card-menu-peinture {
   max-width: 490px;
+  width: 490px;
   height: 820px;
   background-size: cover;
+  background-image: url('/assets/painture.JPG');
+  color: rgba(30,30,30,0);
+
+  &:hover {
+    background-image: none;
+    color: rgba(30,30,30,0.7);
+  }
+}
+
+//////////////////////
 
 
+// Carte menu MURALE //
 
+.card-menu-murale {
+  max-width: 490px;
+  width: 490px;
+  height: 820px;
+  background-size: cover;
+  color: rgba(30,30,30,0);
+  background-image: url('/assets/mural.jpg');
+
+  &:hover {
+    background-image: none;
+    color: rgba(30,30,30,1);
+  }
+}
+
+///////////////////////
+
+// Carte menu ILLUSTRATION
+
+.card-menu-illustration {
+  max-width: 490px;
+  width: 490px;
+  height: 820px;
+  background-size: cover;
+  color: rgba(30,30,30,0);
+  background-image: url('/assets/illu.JPG');
+
+  &:hover {
+    background-image: none;
+    color: rgba(30,30,30,1);
+  }
 }
 
 .container-menu {
   margin: 20px 0;
 }
 
-
-// TesT
-
-
-#test-image-peinture {
-  background-image: url('/assets/painture.JPG');
-
-}
-
-#test-image-mural {
-  background-image: url('/assets/mural.jpg');
-
-}
-
-#test-image-illu {
-  background-image: url('/assets/illu.JPG');
-
-}
-
-
-
-
-// fin de TesT
+/////////////////////////
