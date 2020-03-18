@@ -2,3 +2,23 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "menucard";
+
+
+// Custom font
+
+@font-face {
+   font-family: 'Wakanda';
+   src: url('/assets/Wakanda-Regular.ttf')
+}
+
+body {
+
+  width: 100vw;
+
+  h2 {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+  }
+
+}
