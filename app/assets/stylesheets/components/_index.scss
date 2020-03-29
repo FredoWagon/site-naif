@@ -6,16 +6,15 @@
 @import "grid";
 
 
-// Custom font
-
-@font-face {
-   font-family: 'Wakanda';
-   src: url('/assets/Wakanda-Regular.ttf')
-}
-
 body {
 
-  width: 100vw;
+  width: 100%;
+
+    a {
+      text-decoration: none;
+      outline: none;
+    }
+
 
   h2 {
     font-family: 'Raleway', sans-serif;
