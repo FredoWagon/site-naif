@@ -9,17 +9,32 @@
 
   <div class="mx-auto px-2 md:flex md:justify-between md:max-w-full md:h-full" >
 
-    <div class="mb-3 mx-auto md:w-32/100 ">
-      <img class="h-full object-cover w-full "src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_546/v1584726475/painture_iu4va9.jpg" alt="">
+    <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
+      <div class="h-full z-10">
+        <%= link_to paintings_path do %>
+        <img class="h-full card-menu object-cover w-full "src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_546/v1584726475/painture_iu4va9.jpg" alt="">
+        <% end %>
+      </div>
+
+      <h2 class="absolute z-0">Peintures</h2>
+
+
     </div>
 
-    <div class="mb-3 mx-auto md:w-32/100 ">
-      <img class="h-full object-cover w-full" src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_536/v1584726459/mural_ecrl49.jpg" alt="">
+    <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
+      <div class="h-full z-10">
+        <%= link_to illustrations_path do %>
+        <img class="h-full card-menu object-cover w-full" src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_536/v1584726459/mural_ecrl49.jpg" alt="">
+        <% end %>
+      </div>
+
+      <h2 class="absolute object-center z-0">Illustrations</h2>
+
     </div>
 
 
-    <div class="mb-3 mx-auto md:w-32/100  ">
-      <img class=" object-cover w-full h-full  " src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_472/v1584726476/illu_j2ywr2.jpg" alt="">
+    <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
+      <img class=" h-full card-menu object-cover w-full " src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_472/v1584726476/illu_j2ywr2.jpg" alt="">
     </div>
   </div>
 </div>

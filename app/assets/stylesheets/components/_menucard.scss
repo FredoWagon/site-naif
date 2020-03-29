@@ -67,3 +67,14 @@
 .height-80 {
 
 }
+
+.card-menu {
+  opacity: 1;
+  transition: opacity .3s ease-out;
+
+
+}
+
+.card-menu:hover {
+  opacity: 0;
+}
