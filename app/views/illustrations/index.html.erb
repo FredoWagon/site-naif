@@ -1,0 +1,31 @@
+<%= render 'shared/homenavbar' %>
+
+
+
+
+<script src="/path/to/masonry.pkgd.min.js"></script>
+
+
+  <div class="grid">
+    <% @illustrations.each do |illustration|  %>
+
+    <div class="grid-item">
+      <%= cl_image_tag(illustration.photo.key, :width=>375, :crop=>"scale") %>
+    </div>
+    <% end %>
+
+
+  </div>
+
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<script>
+  var elem = document.querySelector('.grid');
+  var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.grid-item',
+  fitWidth: true,
+  gutter: 10
+});
+</script>
