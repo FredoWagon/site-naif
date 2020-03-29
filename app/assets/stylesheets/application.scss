@@ -16,3 +16,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+//font custom
+@font-face {
+  font-family: 'Wakanda-Regular';
+  src: url(/assets/Wakanda-Regular.eot);
+  src: url(/assets/Wakanda-Regular.eot?#iefix) format("embedded-opentype"),
+    url(/assets/Wakanda-Regular.ttf) format("truetype"),
+    url(/assets/Wakanda-Regular.woff) format("woff"),
+    url(/assets/Wakanda-Regular.svg#Wakanda-Regular) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
