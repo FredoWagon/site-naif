@@ -4,17 +4,20 @@
 @import "navbar";
 @import "menucard";
 @import "grid";
+
+
+html {
+  height: 100%;
+}
+
 @import "zoom";
+
 
 body {
 
+  margin: 0;
   width: 100%;
-
-    a {
-      text-decoration: none;
-      outline: none;
-    }
-
+  min-height: 100%;
 
   h2 {
     font-family: 'Raleway', sans-serif;
