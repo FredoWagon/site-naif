@@ -6,11 +6,18 @@
 
 
 
-  <div class="grid">
+
+
+  <div class="grid" >
+  <!-- [LIGHTBOX CONTAINER] -->
+    <div id="lb-back">
+          <div id="lb-img"></div>
+    </div>
+  <!-- end of [LIGHTBOX CONTAINER] -->
     <% @paintings.each do |painting|  %>
 
     <div class="grid-item">
-      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale") %>
+      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
     </div>
     <% end %>
 
