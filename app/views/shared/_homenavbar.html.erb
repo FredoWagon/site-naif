@@ -22,6 +22,13 @@
         <a  href="#" >
           <h2 class="ml-5 text-xl hover:opacity-50">Moodboard</h2>
         </a>
+
+        <% if user_signed_in? %>
+        <%= link_to 'log out', destroy_user_session_path, method: :delete  %>
+        <% else %>
+        <%= link_to "log in", new_user_session_path, class: "ml-5 text-xl hover:opacity-50"  %>
+
+        <% end %>
       </div>
     </div>
     <div>

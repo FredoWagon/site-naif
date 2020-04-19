@@ -18,6 +18,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'sucker_punch'
 gem 'turbolinks', '~> 5.2.0'
+gem 'devise'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -1,28 +1,56 @@
 <%= render 'shared/homenavbar' %>
 
-
-
-
-
-
-
-
-
-  <div class="grid" >
+<div class="grid" >
   <!-- [LIGHTBOX CONTAINER] -->
-    <div id="lb-back">
-          <div id="lb-img"></div>
-    </div>
-  <!-- end of [LIGHTBOX CONTAINER] -->
-    <% @paintings.each do |painting|  %>
-
-    <div class="grid-item">
-      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
-    </div>
-    <% end %>
-
-
+  <div id="lb-back">
+    <div id="lb-img"></div>
   </div>
+  <!-- end of [LIGHTBOX CONTAINER] -->
+  <% @paintings.each do |painting|  %>
+
+  <div class="modal fade" id="<%= painting.name %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
+
+        </div>
+        <div >
+          <%= simple_form_for(painting) do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= link_to "Edit", painting, method: :patch, remote: true %>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
+    <% if user_signed_in? %>
+    <%= link_to "Edit", painting, remote: true %>
+    <% end %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= painting.name %>">
+      Launch demo modal
+    </button>
+  </div>
+  <% end %>
+
+
+</div>
+
 
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -36,3 +64,7 @@
   gutter: 10
 });
 </script>
+
+<div id="testtest">
+
+</div>
