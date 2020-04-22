@@ -8,7 +8,10 @@
   <!-- end of [LIGHTBOX CONTAINER] -->
   <% @paintings.each do |painting|  %>
 
-  <div class="modal fade" id="<%= painting.name %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <!-- MODAL -->
+  <% if user_signed_in?  %>
+
+  <div class="modal mam fade" id="<%= painting.name %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -19,12 +22,12 @@
         </div>
         <div class="modal-body">
 
-          <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
+          <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD preview pointer-events-none") %>
 
         </div>
         <div >
           <%= simple_form_for(painting) do |f| %>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photo, as: :file, :id => "monid", :input_html => { :onchange => "readurl(this)"} %>
           <%= f.button :submit %>
           <% end %>
         </div>
@@ -33,18 +36,23 @@
           <%= link_to "Edit", painting, method: :patch, remote: true %>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
+        <div id="preview"></div>
       </div>
     </div>
   </div>
+
+  <% end %>
+  <!-- End of modal -->
 
   <div class="grid-item">
     <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
     <% if user_signed_in? %>
     <%= link_to "Edit", painting, remote: true %>
-    <% end %>
+
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<%= painting.name %>">
       Launch demo modal
     </button>
+    <% end %>
   </div>
   <% end %>
 
@@ -54,6 +62,33 @@
 
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<script>
+
+
+ $(document).ready(function() {
+  $('.mam').on('hidden', function() {
+    $("#monid").val("");
+  });
+});
+</script>
+
+<script >
+   function readurl(input) {
+    console.log(typeof input);
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.preview')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
 
 <script>
   var elem = document.querySelector('.grid');
