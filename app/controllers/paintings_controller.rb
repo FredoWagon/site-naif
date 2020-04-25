@@ -17,6 +17,13 @@ def update
 
 end
 
+def open_modal
+  @painting = Painting.find(params[:id])
+  respond_to do |format|
+    format.js
+  end
+end
+
 private
 
 def painting_params
