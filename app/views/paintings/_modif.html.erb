@@ -12,11 +12,13 @@
     </div>
     <%= simple_form_for(painting) do |f| %>
 
-    <%= f.input :image, :as => :file, :input_html => {:onchange => "readurl(this)"} %>
-    <%= f.submit  %>
+    <%= f.input :photo, :as => :file, :input_html => {:onchange => "readurl(this)"} %>
+    <%= f.button :submit %>
     <button type="button" type="submit" class="btn btn-primary" data-disable-with="Update Painting" data-confirm="Are you sure?" >Save changes</button>
     <% end %>
     <div class="modal-footer">
+      <%= link_to "Edit", painting_path, method: :patch, remote: true %>
+
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="button" type="submit" class="btn btn-primary" data-confirm="Are you sure?" >Save changes</button>
     </div>
