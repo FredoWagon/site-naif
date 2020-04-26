@@ -1,31 +1,71 @@
 <%= render 'shared/homenavbar' %>
 
-
-
-
-
-
-
-
-
-  <div class="grid" >
+<div class="grid" >
   <!-- [LIGHTBOX CONTAINER] -->
-    <div id="lb-back">
-          <div id="lb-img"></div>
-    </div>
+  <div id="lb-back">
+    <div id="lb-img"></div>
+  </div>
   <!-- end of [LIGHTBOX CONTAINER] -->
-    <% @paintings.each do |painting|  %>
+   <% if @paintings != nil %>
+  <% @paintings.each do |painting|  %>
 
-    <div class="grid-item">
-      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD") %>
-    </div>
+  <div class="grid-item" id="<%= painting.id %>">
+
+
+
+    <% if user_signed_in? %>
+    <%= link_to open_modal_painting_path(painting.id), remote: true do %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+    <% end %>
+    <%  else %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
-
   </div>
+  <% end %>
+  <% end %>
+</div>
 
+<!-- MODAL -->
+<% if user_signed_in?  %>
+
+<div class="modal mam fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+
+</div>
+<% end %>
+<!-- End of modal -->
+
+<!-- TRAVAIL SUR LE JS !! -->
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+
+
+<script>
+
+  $('.modal').on('hidden.bs.modal', function () {
+    $(this).find("input").val('').end();
+
+  });
+</script>
+
+
+<script >
+ function readurl(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.preview')
+      .attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
 
 <script>
   var elem = document.querySelector('.grid');
@@ -36,3 +76,4 @@
   gutter: 10
 });
 </script>
+

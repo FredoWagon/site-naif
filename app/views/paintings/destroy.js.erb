@@ -1,0 +1,6 @@
+const paintid = "<%= escape_javascript(@painting.id) %>";
+$('.delete').bind('ajax:success', function() {
+  console.log(paintid);
+  $( ".mam" ).modal('hide');
+  $("#" + paintid).remove();
+} );

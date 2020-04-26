@@ -1,0 +1,5 @@
+
+$('.mam').html('#{ escape_javascript(<%= render partial: 'modif', locals: {painting: @painting} )}');
+
+
+$('.mam').openModal();
