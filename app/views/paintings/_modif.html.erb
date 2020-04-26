@@ -7,18 +7,27 @@
       </button>
     </div>
     <div class="modal-body">
-
+      <% if painting.photo.attached? %>
       <%= cl_image_tag painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD preview pointer-events-none" %>
+
+
+      <% else %>
+      <%= image_tag "https://picsum.photos/200/300", class: "preview", alt: "alttext" %>
+
+      <% end %>
+
     </div>
     <%= simple_form_for(painting) do |f| %>
-
+    <%= f.input :name, label: "nom du tableau"  %>
     <%= f.input :photo, :as => :file, :input_html => {:onchange => "readurl(this)"} %>
     <%= f.button :submit %>
     <button type="button" type="submit" class="btn btn-primary" data-disable-with="Update Painting" data-confirm="Are you sure?" >Save changes</button>
     <% end %>
     <div class="modal-footer">
+      <% if painting.photo.attached? %>
       <%= link_to "Edit", painting_path, method: :patch, remote: true %>
-
+      <%= link_to "suppr", painting_path, class: "delete",  method: :delete, remote: true %>
+      <% end %>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="button" type="submit" class="btn btn-primary" data-confirm="Are you sure?" >Save changes</button>
     </div>

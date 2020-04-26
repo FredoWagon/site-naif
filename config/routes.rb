@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :paintings, only: [:index, :show, :update] do
+  resources :paintings, only: [:index, :new, :show, :update, :create, :destroy] do
     get :open_modal, on: :member
   end
   resources :illustrations, only: [:index]

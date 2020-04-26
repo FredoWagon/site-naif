@@ -6,9 +6,10 @@
     <div id="lb-img"></div>
   </div>
   <!-- end of [LIGHTBOX CONTAINER] -->
+   <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
-  <div class="grid-item">
+  <div class="grid-item" id="<%= painting.id %>">
 
 
 
@@ -21,6 +22,7 @@
     <% end %>
 
   </div>
+  <% end %>
   <% end %>
 </div>
 
