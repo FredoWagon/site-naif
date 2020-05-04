@@ -1,0 +1,26 @@
+ <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <%= cl_image_tag bio_pic.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD preview pointer-events-none" %>
+
+    </div>
+    <%= simple_form_for(bio_pic) do |f| %>
+    <%= f.input :photo, :as => :file, :input_html => {:onchange => "readurl(this)"} %>
+    <%= f.button :submit %>
+    <button type="button" type="submit" class="btn btn-primary" data-disable-with="Update Painting" data-confirm="Are you sure?" >Save changes</button>
+    <% end %>
+    <div class="modal-footer">
+      <%= link_to "Edit", bio_path, method: :patch, remote: true %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" type="submit" class="btn btn-primary" data-confirm="Are you sure?" >Save changes</button>
+    </div>
+  </div>
+</div>
+
+
