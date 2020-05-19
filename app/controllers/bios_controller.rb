@@ -5,7 +5,7 @@ class BiosController < ApplicationController
   end
 
   def update
-    @bio_pic = Bio.find(params[:id])
+    @bio_pic = Bio.first
     @bio_pic.update(bio_params)
   end
 
@@ -17,7 +17,7 @@ class BiosController < ApplicationController
   end
 
    def open_modal
-    @bio_pic = Bio.find(params[:id])
+    @bio_pic = Bio.first
     respond_to do |format|
       format.js
     end

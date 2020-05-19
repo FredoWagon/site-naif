@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :illustrations, only: [:index]
   resources :bios, only: [:index, :update] do
-    get :open_modal, on: :member
+    get :open_modal, on: :collection
   end
 
 end

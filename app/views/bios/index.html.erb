@@ -6,12 +6,12 @@
 
   <div class="w-1/4 h-10px">
     <% if user_signed_in? %>
-    <%= link_to open_modal_bio_path(@bio_pic.id), remote: true do %>
+    <%= link_to open_modal_bios_path, remote: true do %>
 
     <%= cl_image_tag @bio_pic.photo.key, width: 400, crop: :fill, class: "" %>
     <% end %>
     <%  else %>
-   <%= cl_image_tag @bio_pic.photo.key, width: 400, crop: :fill %>
+    <%= cl_image_tag @bio_pic.photo.key, width: 400, crop: :fill %>
     <% end %>
 
 
@@ -19,42 +19,17 @@
 
   <% if user_signed_in?  %>
 
-  <%= link_to ,   do %>
+  <%= link_to open_modal_bios_path do %>
   <div class="w-1/4 bio-text">
-    Born in Antibes, 1987.                                                                                                      Bachelor’s degree ENSAV, La Cambre, Brussels, Belgium.                                     She currently lives and works in Biarritz, south of France.
-
-Madi  develops her own style through graphic research while multiplying collaborations, paintings & murals.
-
-She's constantly trying to evolve. At the beginning her work was in black and white, full of meticulous details. Her production of drawings is obsessive as a travel inside her head, showing imaginary characters, textures, sensations, dreams & fantasies.
-Encouraged by her friend SupaKitch, she learned how to tattoo. This specific technic brings control, rules and a lot of precision. So naturally, in parallel she came back to her first love, the spontaneity of creation that leads to painting.
-She immerses herself in a colorfull production, less controlled, unexpected and way more instinctive.
-
-Her work is both singular, intimate and endearing. She paints because she needs to. She's letting the viewer enjoy the conception of a private universe free from any boundaries. As if she was searching for an absolute peace which only the act of painting could fulfill. The main themes are female characters, scenes involving animals, humans, chimeras, flowers and natural elements.
-
-
-
-Collaborations & Clients : Gucci, Rivecour, Starbuck, Quicksilver, Inside Closet, Paulette Mag, WSL, Stance, Nikita, Volcom, Obey, Sergeant Paper, Arte Creative, Hachette, Freehold Hotel Brooklyn, Letterpress de Paris
-
+    <%= @bio_pic.bio %>
   </div>
   <% end %>
+  <% end %>
 
-  <% else %>
+  <% unless user_signed_in? %>
 
   <div class="w-1/4 bio-text">
-    Born in Antibes, 1987.                                                                                                      Bachelor’s degree ENSAV, La Cambre, Brussels, Belgium.                                     She currently lives and works in Biarritz, south of France.
-
-Madi  develops her own style through graphic research while multiplying collaborations, paintings & murals.
-
-She's constantly trying to evolve. At the beginning her work was in black and white, full of meticulous details. Her production of drawings is obsessive as a travel inside her head, showing imaginary characters, textures, sensations, dreams & fantasies.
-Encouraged by her friend SupaKitch, she learned how to tattoo. This specific technic brings control, rules and a lot of precision. So naturally, in parallel she came back to her first love, the spontaneity of creation that leads to painting.
-She immerses herself in a colorfull production, less controlled, unexpected and way more instinctive.
-
-Her work is both singular, intimate and endearing. She paints because she needs to. She's letting the viewer enjoy the conception of a private universe free from any boundaries. As if she was searching for an absolute peace which only the act of painting could fulfill. The main themes are female characters, scenes involving animals, humans, chimeras, flowers and natural elements.
-
-
-
-Collaborations & Clients : Gucci, Rivecour, Starbuck, Quicksilver, Inside Closet, Paulette Mag, WSL, Stance, Nikita, Volcom, Obey, Sergeant Paper, Arte Creative, Hachette, Freehold Hotel Brooklyn, Letterpress de Paris
-
+    <%= @bio_pic.bio %>
   </div>
 
 
