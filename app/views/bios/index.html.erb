@@ -19,7 +19,7 @@
 
   <% if user_signed_in?  %>
 
-  <%= link_to open_modal_bios_path do %>
+  <%= link_to open_text_bios_path, remote: true do %>
   <div class="w-1/4 bio-text">
     <%= @bio_pic.bio %>
   </div>
@@ -41,9 +41,9 @@
 
 <div class="modal mam fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
-
-
 </div>
+
+<div class="modal mom fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <% end %>
 
 <script >

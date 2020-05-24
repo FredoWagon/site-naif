@@ -9,14 +9,14 @@ class BiosController < ApplicationController
     @bio_pic.update(bio_params)
   end
 
-  def modal_text
+  def open_text
+    @bio_pic = Bio.first
     respond_to do |format|
       format.js
     end
-
   end
 
-   def open_modal
+  def open_modal
     @bio_pic = Bio.first
     respond_to do |format|
       format.js
@@ -26,7 +26,7 @@ class BiosController < ApplicationController
   private
 
   def bio_params
-    params.require(:bio).permit(:photo)
+    params.require(:bio).permit(:photo, :bio)
   end
 
 end
