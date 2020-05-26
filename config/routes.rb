@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     get :open_modal, on: :member
   end
   resources :illustrations, only: [:index]
-
+  resources :bios, only: [:index, :update] do
+    get :open_text, on: :collection
+    get :open_modal, on: :collection
+  end
 
 end
