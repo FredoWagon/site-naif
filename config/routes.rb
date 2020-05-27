@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     get :open_modal, on: :collection
   end
 
+  get 'moodboard', to: 'pages#moodboard'
+
 end
