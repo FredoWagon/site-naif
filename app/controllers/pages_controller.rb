@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def moodboard
+    @paramsquery = request.query_parameters
 
   end
 end
