@@ -12,6 +12,25 @@
 
 <h2> <%= request %></h2>
 
-<h1><%= @paramsquery %></h1>
+<h1 id="code"><%= @paramsquery["code"] %></h1>
+
+<% if @test == true %>
+  <button id="lebut">Go!</button>
+<% end %>
+<script>
+  const code = document.querySelector('#code').value
+  const aPI = (valeur) => {
+    fetch(`https://api.instagram.com/oauth/access_token \ -F client_id=2914674878612372 \ -F client_secret=6a60e7b84cd52af294427d09b6c1f7d5 \ -F grant_type=authorization_code \ -F redirect_uri=https://safe-ravine-43900.herokuapp.com/moodboard/ \ -F code=${valeur}`, {
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
 
 
+    })
+  }
+
+aPI(code);
+
+</script>
