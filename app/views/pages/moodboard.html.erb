@@ -1,36 +1,59 @@
 <h1>Salutation</h1>
 
-
-<%= link_to 'Autorisation Insta API', "https://api.instagram.com/oauth/authorize
+<h1>Etape 1 :</h1>
+<%= link_to "Récupérer code d'échange pour le TOKEN", "https://api.instagram.com/oauth/authorize
 ?client_id=2914674878612372
 &redirect_uri=https://safe-ravine-43900.herokuapp.com/moodboard/
 &scope=user_profile,user_media
 &response_type=code" %>
 
-
-<h1><%= request.path_parameters%></h1>
-
-<h2> <%= request %></h2>
-
+<h2>Réponse : </h2>
 <h1 id="code"><%= @paramsquery["code"] %></h1>
 
+<h1>Etape 2 :</h1>
+<button id="tok">Récupérer le token</button>
+<h2 id="toktok"></h2>
+
+
+
+
+
+<h1 id="afi"></h1>
+
 <% if @test == true %>
-  <button id="lebut">Go!</button>
+<button id="lebut">Go!</button>
 <% end %>
+
 <script>
-  const code = document.querySelector('#code').innerText
-  const aPI = (valeur) => {
-    fetch(`https://api.instagram.com/oauth/access_token \ -F client_id=2914674878612372 \ -F client_secret=6a60e7b84cd52af294427d09b6c1f7d5 \ -F grant_type=authorization_code \ -F redirect_uri=https://safe-ravine-43900.herokuapp.com/moodboard/ \ -F code=${valeur}`, {
-      method: "POST"
+
+  const tokenPost = (code) => {
+    fetch(`https://api.instagram.com/oauth/access_token?client_id=2914674878612372client_secret=6a60e7b84cd52af294427d09b6c1f7d5grant_type=authorization_coderedirect_uri=https://safe-ravine-43900.herokuapp.com/moodboard/code=${code}`, {
+      method: "POST",
     })
     .then(response => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(JSON.stringify(data));
+      const resulTok = document.querySelector("#toktok");
+    resulTok.innerText = JSON.stringify(data); // Look at local_names.default
+  });
+  };
+  const codi = document.querySelector("#code");
+  const input = document.querySelector("#tok");
+  input.addEventListener("click", tokenPost(codi.innerText));
 
+</script>
 
-    })
-  }
-console.log(`https://api.instagram.com/oauth/access_token \ -F client_id=2914674878612372 \ -F client_secret=6a60e7b84cd52af294427d09b6c1f7d5 \ -F grant_type=authorization_code \ -F redirect_uri=https://safe-ravine-43900.herokuapp.com/moodboard/ \ -F code=${valeur}`);
-aPI(code);
+<script>
+ const test = () => {
+  fetch("https://graph.instagram.com/17841408164738942?fields=id,username&access_token=IGQVJXNjFMbmROUVR4YkxkQi0xdkFObXFudnpjSWNVMUMtYWEzcDFKb0xUQzBRNzJqUnFUWFNCdE1qNEp0RktndHd4SHpOVnVBbGktZA3pBYnlTdXN3cWVNVllFbzZAjLTlBQURaNjQtQk1mbDRvVW1hdUV5QjVsVEZA5SGM4")
+  .then(response => response.json())
+  .then((data) => {
+    console.log(data);
+    console.log(JSON.stringify(data));
+    const result = document.querySelector("#afi");
+    result.innerText = JSON.stringify(data);
+  });
+}
+test();
 
 </script>
