@@ -1,7 +1,22 @@
+
+
+ <!--  <div class="flex justify-between ">
+
+    <%=link_to root_path do %>
+    <h2 class="flex_1 text-4xl font-medium" style="font-family: Wakanda;">NAÏF</h2>
+    <% end %>
+
+
+    <i class="fas fa-ellipsis-h md:hidden"></i>
+
+
+  </div> -->
+
 <div class="flex-none">
 
   <div class="py-5 px-5 sticky top-0 bg-white shadow-withe z-20 ">
-    <div class="bg-white w-auto flex justify-between items-center sm:max-w-6xl m-auto ">
+
+    <div class="bg-white w-full flex justify-between items-center sm:max-w-6xl m-auto ">
       <%=link_to root_path do %>
       <h2 class="flex_1 text-4xl font-medium" style="font-family: Wakanda;">NAÏF</h2>
       <% end %>
@@ -22,9 +37,9 @@
           <h2 class="ml-5 text-xl hover:opacity-50">Contact</h2>
         </a>
 
-         <% if user_signed_in? %>
-          <%= link_to "add", new_painting_path, remote: true %>
-         <% end %>
+        <% if user_signed_in? %>
+        <%= link_to "add", new_painting_path, remote: true %>
+        <% end %>
 
 
 
@@ -48,4 +63,3 @@
       <div></div>
     </div>
   </div>
-
