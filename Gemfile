@@ -20,6 +20,7 @@ gem 'sucker_punch'
 gem 'turbolinks', '~> 5.2.0'
 gem 'devise'
 gem 'pundit'
+gem 'active_link_to'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
