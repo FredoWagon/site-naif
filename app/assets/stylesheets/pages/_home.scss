@@ -1,4 +1,41 @@
 // Specific CSS for your home-page
 body {
   background-color: white;
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #34495e;
+}
+
+.mobmenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mobmenu li {
+  list-style-type: none;
+  margin: 20px 0;
+  font-size: 26px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateX(-10px);
+  }
 }
