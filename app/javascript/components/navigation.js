@@ -1,8 +1,14 @@
-const isActive =() => {
-    let currentRoute = this.router.currentRouteName;
-    let isRouteActive = {};
-    for (let route of ['players', 'tournaments', 'games']) {
-      isRouteActive[route] = currentRoute.includes(route);
-    }
-    return isRouteActive;
-  }
+$(document).ready(function(){
+  // menu click event
+  $('.menuBtn').click(function() {
+    $(this).toggleClass('act');
+      if($(this).hasClass('act')) {
+        $('.mainMenu').addClass('act');
+      }
+      else {
+        $('.mainMenu').removeClass('act');
+      }
+  });
+});
+
+
