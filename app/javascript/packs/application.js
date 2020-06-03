@@ -10,6 +10,3 @@ require("packs/lightBox")
 require("css/application.scss")
 
 
-
-
-menub();

@@ -1,11 +1,14 @@
-const menub = () => {
-  console.log("test");
-const icon = document.querySelector(".fas");
-const menu = document.querySelector(".overlay");
-console.log(icon);
-console.log(menu);
-icon.addEventListener('click', (event) => {
- console.log(event);
+$(document).ready(function(){
+  // menu click event
+  $('.menuBtn').click(function() {
+    $(this).toggleClass('act');
+      if($(this).hasClass('act')) {
+        $('.mainMenu').addClass('act');
+      }
+      else {
+        $('.mainMenu').removeClass('act');
+      }
+  });
 });
 
-}
+
