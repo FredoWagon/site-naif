@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   end
 
   get 'moodboard', to: 'pages#moodboard'
+  get '/moodboard/webhook/', to: 'pages#webhook'
 
 end

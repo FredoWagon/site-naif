@@ -17,3 +17,5 @@ document.addEventListener("turbolinks:load", function() {
   const menubb = document.querySelector('.menuBtn');
   menubb.classList.remove("act");
 });
+
+

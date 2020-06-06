@@ -11,6 +11,8 @@ class PagesController < ApplicationController
 
   end
 
+  def webhook
+  end
 
   private
 
