@@ -22,6 +22,7 @@ gem 'devise'
 gem 'pundit'
 gem 'active_link_to'
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

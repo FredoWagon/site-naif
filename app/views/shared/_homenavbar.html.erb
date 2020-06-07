@@ -27,7 +27,7 @@
       <h2 class="ml-5 text-xl hover:opacity-50 active:text-red-800 ">Contact</h2>
     <li>
 
-      <%= active_link_to 'Moodboard', moodboard_path, active: :inclusive, class: "ml-5 text-xl hover:no-underline hover:opacity-50" %>
+      <%= active_link_to 'Moodboard', instas_path, active: :inclusive, class: "ml-5 text-xl hover:no-underline hover:opacity-50" %>
 
     <li>
       <% if user_signed_in? %>
@@ -52,7 +52,7 @@
             <a href="#" class="text-xl hover:opacity-50 active:text-red-800">Contact</a>
           </li>
           <li>
-            <%= active_link_to 'Moodboard', moodboard_path, active: :inclusive, class: " text-xl hover:no-underline hover:opacity-50" %>
+            <%= active_link_to 'Moodboard', instas_path, active: :inclusive, class: " text-xl hover:no-underline hover:opacity-50" %>
           </li>
           <li>
             <a href="#" class="suBtn">Sing Up</a>

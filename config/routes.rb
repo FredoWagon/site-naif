@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     get :open_modal, on: :collection
   end
 
-  get 'moodboard', to: 'pages#moodboard'
-  get '/moodboard/webhook/', to: 'pages#webhook'
+  resources :instas, only: [:index, :create] do
+    collection do
+      post :refresh
+      delete :destroy_all
+    end
+  end
+
 
 end
