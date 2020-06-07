@@ -1,5 +1,7 @@
 class BiosController < ApplicationController
 
+protect_from_forgery unless: -> { request.format.json? }
+
   def index
     @bio_pic = Bio.first
   end
