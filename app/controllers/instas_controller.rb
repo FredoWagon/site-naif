@@ -30,16 +30,8 @@ class InstasController < ApplicationController
   end
 
   def webhook
-    puts "salut mon gars #{request.body.read}"
-    puts "params class #{params.class}"
-    puts "params key : #{params['hub.challenge'].class}"
     test = params['hub.challenge']
-    puts Rails.application.credentials.inst[:hook_token].to_s
-    puts params['hub.verify_token'].class
-
-      render plain: test
-
-
+    render plain: test
   end
 
   def destroy_all
