@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     get :open_modal, on: :collection
   end
 
-  resources :instas, only: [:index, :create] do
+  resources :instas, only: [:index, :create, :webhook] do
     collection do
       post :refresh
       delete :destroy_all
+      get :webhook
     end
   end
 
