@@ -36,9 +36,9 @@ class InstasController < ApplicationController
     test = params['hub.challenge']
     puts Rails.application.credentials.inst[:hook_token].to_s
     puts params['hub.verify_token'].class
-    if Rails.application.credentials.inst[:hook_token].to_s == params['hub.verify_token']
+
       render plain: test
-    end
+
 
   end
 
