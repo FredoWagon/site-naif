@@ -1,5 +1,6 @@
 require "open-uri"
 require "rest-client"
+require "dotenv"
 
 class InstasController < ApplicationController
 
@@ -7,6 +8,11 @@ class InstasController < ApplicationController
 
   def index
     @instas = @data
+    test = request.body.read
+    puts "salut c'est #{response}"
+    response
+    puts response
+
   end
 
   def create
@@ -21,6 +27,19 @@ class InstasController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def webhook
+    puts "salut mon gars #{request.body.read}"
+    puts "params class #{params.class}"
+    puts "params key : #{params['hub.challenge'].class}"
+    test = params['hub.challenge']
+    puts Rails.application.credentials.inst[:hook_token].to_s
+    puts params['hub.verify_token'].class
+    if Rails.application.credentials.inst[:hook_token].to_s == params['hub.verify_token']
+      render plain: test
+    end
+
   end
 
   def destroy_all
