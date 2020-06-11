@@ -28,8 +28,11 @@ class InstasController < ApplicationController
     @insta_entrie = Insta.new
     number_name = 10000
     @insta_entrie.photo.attach(io:insta_pic, filename: "insta#{number_name}.jpg", content_type: 'image/jpg')
-    @insta_entrie.save
-    number_name += 1
+    if @insta_entrie.save
+      number_name += 1
+      render :json => {:status => 200}
+    end
+
   end
 
   def destroy_all
