@@ -1,7 +1,5 @@
 require "open-uri"
 require "rest-client"
-require "dotenv"
-require "pry-byebug"
 
 class InstasController < ApplicationController
 
