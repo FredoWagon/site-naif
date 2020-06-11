@@ -1,0 +1,3 @@
+const displayGrid = document.querySelector(".insta-grid");
+
+displayGrid.inserAdjacentHTML("afterbegin", <%= cl_image_tag(@insta_entrie.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>);
