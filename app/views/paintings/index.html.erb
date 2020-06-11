@@ -6,7 +6,7 @@
     <div id="lb-img"></div>
   </div>
   <!-- end of [LIGHTBOX CONTAINER] -->
-   <% if @paintings != nil %>
+  <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
   <div class="grid-item" id="<%= painting.id %>">
@@ -42,6 +42,7 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 
+<% if user_signed_in? %>
 
 <script>
 
@@ -66,6 +67,13 @@
   }
 }
 </script>
+
+
+<% end %>
+
+
+
+
 
 <script>
   var elem = document.querySelector('.grid');
