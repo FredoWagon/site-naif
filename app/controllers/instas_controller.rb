@@ -28,13 +28,8 @@ class InstasController < ApplicationController
     @insta_entrie = Insta.new
     number_name = 10000
     @insta_entrie.photo.attach(io:insta_pic, filename: "insta#{number_name}.jpg", content_type: 'image/jpg')
-
-    if @insta_entrie.save
-      number_name += 1
-      respond_to do |format|
-        format.js
-      end
-    end
+    @insta_entrie.save
+    number_name += 1
   end
 
   def destroy_all
