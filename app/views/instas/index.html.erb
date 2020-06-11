@@ -1,6 +1,19 @@
-<h2><%= @instas %></h2>
+
 <h1>test</h1>
+
+
+<div class="grid insta-grid grid-cols-4">
+  <% @instas.each do |insta| %>
+
+  <%= cl_image_tag(insta.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+
+  <% end %>
+
+</div>
+
+
 
 <%= link_to "destroy all" , destroy_all_instas_path, method: :delete  %>
 
 <%= link_to "refresh all", refresh_instas_path, method: :post %>
+

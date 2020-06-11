@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     collection do
       post :refresh
       delete :destroy_all
-      get :webhook
+      post :webhook
     end
   end
 

@@ -1,25 +1,17 @@
 require "open-uri"
 require "rest-client"
 require "dotenv"
+require "pry-byebug"
 
 class InstasController < ApplicationController
 
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    @instas = @data
-    test = request.body.read
-    puts "salut c'est #{response}"
-    response
-    puts response
+    @instas = Insta.all
 
   end
 
-  def create
-    response = request.body.read
-    puts "salut c'est #{response}"
-
-  end
 
   def destroy
     @insta = Insta.find(params[:id])
@@ -30,8 +22,14 @@ class InstasController < ApplicationController
   end
 
   def webhook
-    test = params['hub.challenge']
-    render plain: test
+    media_received = JSON.parse(request.body.read)
+    media_url = media_received["media"]
+    insta_pic = open(media_url)
+    @insta_entrie = Insta.new
+    number_name = 10000
+    @insta_entrie.photo.attach(io:insta_pic, filename: "insta#{number_name}.jpg", content_type: 'image/jpg')
+    @insta_entrie.save
+    number_name += 1
   end
 
   def destroy_all
