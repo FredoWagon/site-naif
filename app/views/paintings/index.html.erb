@@ -14,11 +14,11 @@
 
 
     <% if user_signed_in? %>
-    <%= link_to open_modal_painting_path(painting.id), remote: true do %>
-    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
-    <% end %>
+      <%= link_to open_modal_painting_path(painting.id), remote: true do %>
+        <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <% end %>
     <%  else %>
-    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
   </div>
@@ -36,6 +36,7 @@
 </div>
 <% end %>
 <!-- End of modal -->
+
 
 <!-- TRAVAIL SUR LE JS !! -->
 

@@ -159,14 +159,23 @@ puts "Illustrations creation DONE !"
 
 ####################################################################### BIO START #####################################################################
 
-puts "Bio start"
+# puts "Bio start"
 
-file_bio = URI.open("https://res.cloudinary.com/dfezduqh1/image/upload/v1588597583/bio_jhgyjc.jpg")
+# file_bio = URI.open("https://res.cloudinary.com/dfezduqh1/image/upload/v1588597583/bio_jhgyjc.jpg")
 
-bio_pic = Bio.new()
-bio_pic.photo.attach(io:file_bio, filename:'bio.jpg', content_type: 'image/jpg')
-bio_pic.save
+# bio_pic = Bio.new()
+# bio_pic.photo.attach(io:file_bio, filename:'bio.jpg', content_type: 'image/jpg')
+# bio_pic.save
 
+
+puts "start add menu pic"
+
+filemenu = URI.open("https://images.squarespace-cdn.com/content/v1/5a74cc0f010027ddb53c0088/1523622565961-VTA8KU5KOEFVY1NCYK6C/ke17ZwdGBToddI8pDm48kD1P9BgemWsDRCMXjK6ZnXt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfIyV69vqfmnVx3_oT3war8Q6J7oOyAO6KbulbzxVzq2-zH9hmAOn72jek5VDWPSVA/IMG_6156.JPG")
+
+picmenu = Picmenu.new()
+picmenu.photo.attach(io:filemenu, filename:'menupic1.jpg', content_type: 'image/jpg')
+picmenu.title = "test de menu"
+picmenu.save
 
 ####DONE####
 
