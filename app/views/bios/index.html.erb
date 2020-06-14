@@ -23,7 +23,7 @@
   <div class="w-full bio-text">
     <p class="w-full whitespace-pre-wrap text-justify">
 
-      <%= @bio_pic.bio %></p>
+      <%= @bio_pic.body %></p>
 
   </div>
   <% end %>
@@ -32,7 +32,7 @@
   <% unless user_signed_in? %>
 
   <div class="w-1/4 bio-text">
-    <p><%= @bio_pic.bio %></p>
+    <p><%= @bio_pic.body %></p>
 
   </div>
 

@@ -10,3 +10,6 @@ require("packs/lightBox")
 require("css/application.scss")
 
 
+
+require("trix")
+require("@rails/actiontext")

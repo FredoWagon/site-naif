@@ -28,7 +28,7 @@ protect_from_forgery unless: -> { request.format.json? }
   private
 
   def bio_params
-    params.require(:bio).permit(:photo, :bio)
+    params.require(:bio).permit(:photo, :body)
   end
 
 end
