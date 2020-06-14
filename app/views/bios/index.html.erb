@@ -21,7 +21,9 @@
 
   <%= link_to open_text_bios_path, class: "w-1/4", remote: true do %>
   <div class="w-full bio-text">
-    <p class="w-full whitespace-pre-wrap text-justify"><%= @bio_pic.bio %></p>
+    <p class="w-full whitespace-pre-wrap text-justify">
+
+      <%= @bio_pic.bio %></p>
 
   </div>
   <% end %>

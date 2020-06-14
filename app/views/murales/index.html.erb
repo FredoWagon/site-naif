@@ -6,19 +6,19 @@
     <div id="lb-img"></div>
   </div>
   <!-- end of [LIGHTBOX CONTAINER] -->
-  <% if @illustrations != nil %>
-  <% @illustrations.each do |illustration|  %>
+  <% if @murales != nil %>
+  <% @murales.each do |murale|  %>
 
-  <div class="grid-item" id="<%= illustration.id %>">
+  <div class="grid-item" id="<%= murale.id %>">
 
 
 
     <% if user_signed_in? %>
-      <%= link_to open_modal_illustration_path(illustration.id), remote: true do %>
-        <%= cl_image_tag(illustration.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <%= link_to open_modal_murale_path(murale.id), remote: true do %>
+        <%= cl_image_tag(murale.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
       <% end %>
     <%  else %>
-      <%= cl_image_tag(illustration.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <%= cl_image_tag(murale.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
   </div>
