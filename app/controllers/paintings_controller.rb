@@ -3,10 +3,6 @@ class PaintingsController < ApplicationController
     @paintings = Painting.all
   end
 
-  def show
-
-  end
-
   def new
     @painting = Painting.new
     respond_to do |format|

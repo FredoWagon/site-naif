@@ -6,7 +6,7 @@
     <div id="lb-img"></div>
   </div>
   <!-- end of [LIGHTBOX CONTAINER] -->
-   <% if @paintings != nil %>
+  <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
   <div class="grid-item" id="<%= painting.id %>">
@@ -14,11 +14,11 @@
 
 
     <% if user_signed_in? %>
-    <%= link_to open_modal_painting_path(painting.id), remote: true do %>
-    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
-    <% end %>
+      <%= link_to open_modal_painting_path(painting.id), remote: true do %>
+        <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <% end %>
     <%  else %>
-    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
   </div>
@@ -37,11 +37,13 @@
 <% end %>
 <!-- End of modal -->
 
+
 <!-- TRAVAIL SUR LE JS !! -->
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 
+<% if user_signed_in? %>
 
 <script>
 
@@ -66,6 +68,13 @@
   }
 }
 </script>
+
+
+<% end %>
+
+
+
+
 
 <script>
   var elem = document.querySelector('.grid');

@@ -3,15 +3,25 @@ require "rest-client"
 
 class PagesController < ApplicationController
   def index
-    # test cscsqc
+    @picmenu = Picmenu.all
   end
 
-  def moodboard
-    @urls = instaUrl
+  def update
+    @picmenu = Picmenu.find(params[:id])
+
+    if @picmenu.update(picmenu_params)
+      redirect_to pages_path, notice: "Bien joué"
+    else
+      redirect_to pages_path, alert: "Mal joué"
+    end
 
   end
 
-  def webhook
+  def open_modal
+    @picmenu = Picmenu.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -65,6 +75,10 @@ class PagesController < ApplicationController
       all_id << media_id.values.join
     end
     all_id
+  end
+
+  def picmenu_params
+    params.require(:picmenu).permit(:photo, :title)
   end
 
 end

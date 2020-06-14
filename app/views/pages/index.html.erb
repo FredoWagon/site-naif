@@ -9,32 +9,97 @@
 
   <div class="mx-auto px-2 md:flex md:justify-between md:max-w-full md:h-full" >
 
+
+
+
     <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
+
       <div class="h-full z-10">
-        <%= link_to paintings_path do %>
-        <img class="h-full card-menu object-cover w-full "src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_546/v1584726475/painture_iu4va9.jpg" alt="">
-        <% end %>
+
+      <%= link_to paintings_path do %>
+         <%= cl_image_tag(@picmenu.find(1).photo.key, :class=>"h-full card-menu object-cover w-full") %>
+      <% end %>
+      <% if user_signed_in? %>
+      <%= link_to 'Add pic', open_modal_page_path(@picmenu.find(1).id), :class=>"bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded", remote: true %>
+      <% end %>
       </div>
-
-      <h2 class="absolute z-0">Peintures</h2>
-
+      <h2 class="absolute z-0"><%= @picmenu.find(1).title  %></h2>
 
     </div>
 
     <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
+
       <div class="h-full z-10">
-        <%= link_to illustrations_path do %>
-        <img class="h-full card-menu object-cover w-full" src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_536/v1584726459/mural_ecrl49.jpg" alt="">
-        <% end %>
-      </div>
 
-      <h2 class="absolute object-center z-0">Illustrations</h2>
+      <%= link_to illustrations_path do %>
+         <%= cl_image_tag(@picmenu.find(2).photo.key, :class=>"h-full card-menu object-cover w-full") %>
+      <% end %>
+      <% if user_signed_in? %>
+      <%= link_to 'Add pic', open_modal_page_path(@picmenu.find(2).id), :class=>"bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded", remote: true %>
+      <% end %>
+      </div>
+      <h2 class="absolute z-0"><%= @picmenu.find(2).title  %></h2>
 
     </div>
-
 
     <div class="mb-3 mx-auto flex items-center justify-center relative md:w-32/100 ">
-      <img class=" h-full card-menu object-cover w-full " src="https://res.cloudinary.com/dfezduqh1/image/upload/c_scale,w_472/v1584726476/illu_j2ywr2.jpg" alt="">
+
+      <div class="h-full z-10">
+
+      <%= link_to murales_path do %>
+         <%= cl_image_tag(@picmenu.find(3).photo.key, :class=>"h-full card-menu object-cover w-full") %>
+      <% end %>
+      <% if user_signed_in? %>
+      <%= link_to 'Add pic', open_modal_page_path(@picmenu.find(3).id), :class=>"bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded", remote: true %>
+      <% end %>
+      </div>
+      <h2 class="absolute z-0"><%= @picmenu.find(3).title  %></h2>
+
     </div>
+
+
+
+
+
   </div>
 </div>
+
+<!-- MODAL -->
+<% if user_signed_in?  %>
+
+<div class="modal mam fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+
+</div>
+<% end %>
+<!-- End of modal -->
+
+<% if user_signed_in? %>
+
+<script>
+
+  $('.modal').on('hidden.bs.modal', function () {
+    $(this).find("input").val('').end();
+
+  });
+</script>
+
+
+<script >
+ function readurl(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('.preview')
+      .attr('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+
+<% end %>

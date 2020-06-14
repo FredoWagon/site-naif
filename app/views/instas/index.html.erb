@@ -2,7 +2,7 @@
 
 
 <div class="grid insta-grid grid-cols-4">
-  <% @instas.each do |insta| %>
+  <% @instas.order('id DESC').each do |insta| %>
 
   <%= cl_image_tag(insta.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
 

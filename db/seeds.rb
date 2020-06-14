@@ -67,6 +67,26 @@ puts "Desroy all START !"
 # ##
 # puts "Illustrations CREATION START"
 
+########################################################################CREATION MURALES#####################################################################
+
+puts "add murale"
+
+filemenu = URI.open("https://images.squarespace-cdn.com/content/v1/5a74cc0f010027ddb53c0088/1523622565961-VTA8KU5KOEFVY1NCYK6C/ke17ZwdGBToddI8pDm48kD1P9BgemWsDRCMXjK6ZnXt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfIyV69vqfmnVx3_oT3war8Q6J7oOyAO6KbulbzxVzq2-zH9hmAOn72jek5VDWPSVA/IMG_6156.JPG")
+
+
+
+murale14 = Murale.new(name: "murale1")
+murale14.photo.attach(io: filemenu, filename: 'murale11.jpg', content_type: 'image/jpg')
+murale14.save
+
+
+puts "murale add done !"
+
+#-----------------------------------------------------------------------MURALES DONE--------------------------------------------------------------------------
+
+
+
+
 # ########################################################################CREATION ILLUSTRATIONS#####################################################################
 
 # illu1 = URI.open("https://res.cloudinary.com/dfezduqh1/image/upload/v1585491127/n8rmlavpfpd4lzccgkbfihrcq1nv.jpg")
@@ -159,14 +179,37 @@ puts "Illustrations creation DONE !"
 
 ####################################################################### BIO START #####################################################################
 
-puts "Bio start"
+# puts "Bio start"
 
-file_bio = URI.open("https://res.cloudinary.com/dfezduqh1/image/upload/v1588597583/bio_jhgyjc.jpg")
+# file_bio = URI.open("https://res.cloudinary.com/dfezduqh1/image/upload/v1588597583/bio_jhgyjc.jpg")
 
-bio_pic = Bio.new()
-bio_pic.photo.attach(io:file_bio, filename:'bio.jpg', content_type: 'image/jpg')
-bio_pic.save
+# bio_pic = Bio.new()
+# bio_pic.photo.attach(io:file_bio, filename:'bio.jpg', content_type: 'image/jpg')
+# bio_pic.save
 
+
+puts "start add menu pic"
+
+# filemenu = URI.open("https://images.squarespace-cdn.com/content/v1/5a74cc0f010027ddb53c0088/1523622565961-VTA8KU5KOEFVY1NCYK6C/ke17ZwdGBToddI8pDm48kD1P9BgemWsDRCMXjK6ZnXt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UfIyV69vqfmnVx3_oT3war8Q6J7oOyAO6KbulbzxVzq2-zH9hmAOn72jek5VDWPSVA/IMG_6156.JPG")
+
+# filemenu2 = URI.open("https://images.squarespace-cdn.com/content/v1/5a74cc0f010027ddb53c0088/1571667491798-GGHN61UPCKRX2OPQY5GI/ke17ZwdGBToddI8pDm48kLbAwh6vXuUiDSSVgIrzOKt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmjw4y9jm25X_CplAKqpK2flVIQTlYlLUKqYcXu72nPC2xFVAxS8Gjlyugqb8hdVbQ/D23719EC-3839-4E98-9500-90740C7B14F0.JPG")
+
+# filemenu3 = URI.open("https://images.squarespace-cdn.com/content/v1/5a74cc0f010027ddb53c0088/1584630162875-MHZYMACCDCNG4ZJ8QGA9/ke17ZwdGBToddI8pDm48kK60W-ob1oA2Fm-j4E_9NQB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kD6Ec8Uq9YczfrzwR7e2Mh5VMMOxnTbph8FXiclivDQnof69TlCeE0rAhj6HUpXkw/IMG_6040.JPG")
+
+# picmenu = Picmenu.new()
+# picmenu.photo.attach(io: filemenu, filename:'menupic1.jpg', content_type: 'image/jpg')
+# picmenu.title = "test de menu"
+# picmenu.save
+
+# picmenu2 = Picmenu.new()
+# picmenu2.photo.attach(io: filemenu2, filename:'menupic2.jpg', content_type: 'image/jpg')
+# picmenu2.title = "Illustrations"
+# picmenu2.save
+
+# picmenu3 = Picmenu.new()
+# picmenu3.title = "Murales"
+# picmenu3.photo.attach(io: filemenu3, filename: 'menupic3.jpg', content_type: 'image/jpg')
+# picmenu3.save
 
 ####DONE####
 
