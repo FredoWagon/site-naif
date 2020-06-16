@@ -9,6 +9,19 @@ class ContactsController < ApplicationController
   end
 end
 
+def create
+  @contact = Contact.new(contact_params)
+
+  if @contact.save
+    respond_to do |format|
+      format.js { flash.now[:notice] = 'Prout' }
+    end
+  else
+    render :new
+  end
+end
+
+
 
 
 private

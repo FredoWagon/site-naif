@@ -19,6 +19,13 @@
     </div>
     <%= simple_form_for(murale) do |f| %>
     <%= f.input :name, label: "nom du tableau"  %>
+    <% if murale.errors.any? %>
+    <ul>
+      <% murale.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
     <%= f.input :photo, :as => :file, :input_html => {:onchange => "readurl(this)"} %>
     <%= f.button :submit %>
     <button type="button" type="submit" class="btn btn-primary" data-disable-with="Update murale" data-confirm="Are you sure?" >Save changes</button>
