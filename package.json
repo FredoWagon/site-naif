@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "channels": "0.0.4",
     "jquery": "^3.5.0",
+    "maildev": "^1.1.0",
     "popper.js": "^1.16.1",
     "tailwindcss": "^1.2.0",
     "trix": "^1.0.0",
