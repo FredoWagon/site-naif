@@ -13,8 +13,9 @@ def create
   @contact = Contact.new(contact_params)
 
   if @contact.save
+    ContactMailer.contact_message(@contact).deliver_now
     respond_to do |format|
-      format.js { flash.now[:notice] = 'Prout' }
+      format.js
     end
   else
     render :new
