@@ -9,7 +9,7 @@
   <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
-  <div class="grid-item" id="<%= painting.id %>">
+  <div class="grid-item opacity-0" id="<%= painting.id %>">
 
 
 
@@ -40,8 +40,6 @@
 
 <!-- TRAVAIL SUR LE JS !! -->
 
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 
 
 <% if user_signed_in? %>
@@ -87,6 +85,10 @@
   fitWidth: true,
   gutter: 10
 });
+  var elem = document.querySelectorAll('.grid-item');
+  for (let i = 0; i < elem.length; i++)  {
+    elem[i].classList.add('opacity-100', 'transition', 'delay-700');
+  }
 
   });
 
