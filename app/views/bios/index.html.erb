@@ -24,43 +24,43 @@
     <p class="w-full whitespace-pre-wrap text-justify">
 
       <%= @bio_pic.body %></p>
+    </div>
+    <% end %>
+
+  <% else %>
+
+    <div class="w-1/4 bio-text">
+      <p><%= @bio_pic.body %></p>
+
+    </div>
+
+
+  <% end %>
 
   </div>
-  <% end %>
-  <% end %>
 
-  <% unless user_signed_in? %>
+  <% if user_signed_in?  %>
 
-  <div class="w-1/4 bio-text">
-    <p><%= @bio_pic.body %></p>
+  <div class="modal mam fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
 
-  </div>
+    <div class="modal mom fade" tabindex="-1" role="dialog" aria-labelledby="example2ModalCenterTitle" aria-hidden="true">
 
-
-  <% end %>
-
-</div>
-
-<% if user_signed_in?  %>
-
-<div class="modal mam fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
-</div>
+    </div>
 
 
-  <% end %>
+    <% end %>
 
-  <script >
-   function readurl(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
+    <script >
+     function readurl(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-      reader.onload = function (e) {
-        $('.preview')
-        .attr('src', e.target.result);
-      };
+        reader.onload = function (e) {
+          $('.preview')
+          .attr('src', e.target.result);
+        };
 
-      reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(input.files[0]);
+      }
     }
-  }
-</script>
+  </script>

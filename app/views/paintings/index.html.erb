@@ -41,6 +41,7 @@
 <!-- TRAVAIL SUR LE JS !! -->
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 
 
 <% if user_signed_in? %>
@@ -76,13 +77,18 @@
 
 
 
-<script>
-  var elem = document.querySelector('.grid');
+<script >
+  imagesLoaded( '.grid', function() {
+    console.log("grid ok");
+    var elem = document.querySelector('.grid');
   var msnry = new Masonry( elem, {
   // options
   itemSelector: '.grid-item',
   fitWidth: true,
   gutter: 10
 });
+
+  });
+
 </script>
 
