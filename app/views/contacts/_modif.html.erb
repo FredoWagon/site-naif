@@ -1,0 +1,51 @@
+
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body mx-3">
+
+      <%= form_for contact, url: contacts_path, remote: true do |f| %>
+        <% if contact.errors.any? %>
+        <h2>Errors :</h2>
+        <ul>
+          <% contact.errors.full_messages.each do |message| %>
+          <li> <%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
+
+      <div class="col-md-6">
+        <%= f.label :name %></br>
+        <%= f.text_field  :name, required: true, class: "contact-form-text-area" %></br>
+
+        <%= f.label :email %></br>
+        <%= f.text_field :email, required: true, class: "contact-form-text-area" %></br>
+
+        <%= f.label :subject %></br>
+        <%= f.text_field :subject, required: true, class: "contact-form-text-area" %>
+
+        <%= f.label :message %></br>
+        <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
+        placeholder: "Send me a message"%></br>
+
+        <%= f.submit 'Send Message', class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="submit" class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Launch
+  Modal Contact Form</a>
+</div>

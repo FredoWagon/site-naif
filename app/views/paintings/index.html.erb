@@ -9,16 +9,16 @@
   <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
-  <div class="grid-item" id="<%= painting.id %>">
+  <div class="grid-item animate-pop-opacity" id="<%= painting.id %>">
 
 
 
     <% if user_signed_in? %>
-      <%= link_to open_modal_painting_path(painting.id), remote: true do %>
-        <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
-      <% end %>
+    <%= link_to open_modal_painting_path(painting.id), remote: true do %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+    <% end %>
     <%  else %>
-      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
   </div>
@@ -40,7 +40,6 @@
 
 <!-- TRAVAIL SUR LE JS !! -->
 
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 
 <% if user_signed_in? %>
@@ -72,17 +71,18 @@
 
 <% end %>
 
-
-
-
-
-<script>
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
+<script  >
+  imagesLoaded( '.grid', function() {
+    console.log("grid ok");
+    var elem = document.querySelector('.grid');
+    var msnry = new Masonry( elem, {
   // options
   itemSelector: '.grid-item',
   fitWidth: true,
   gutter: 10
 });
+
+  });
+
 </script>
 

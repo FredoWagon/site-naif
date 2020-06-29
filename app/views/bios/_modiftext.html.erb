@@ -1,14 +1,14 @@
- <div class="modal-dialog modal-dialog-centered" role="document">
+ <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+      <h5 class="modal-title" id="example2ModalCenterTitle"></h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
       <%= simple_form_for(bio_pic) do |f| %>
-      <%= f.input :bio, placeholder: bio_pic.bio %>
+      <%= f.rich_text_area :body, placeholder: "Ta bio", class: "w-100 h-64 text-justify overflow-auto" %>
       <%= f.button :submit %>
       <% end %>
 
