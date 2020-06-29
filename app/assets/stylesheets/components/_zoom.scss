@@ -27,3 +27,26 @@
 #lb-img {
   text-align: center;
 }
+
+.opacity-transfert-none {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+
+
+.animate-pop-opacity {
+  opacity: 0;
+  animation: slide-opacity 2s forwards;
+}
+
+
+@keyframes slide-opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

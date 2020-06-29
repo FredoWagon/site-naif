@@ -9,16 +9,16 @@
   <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
-  <div class="grid-item opacity-0" id="<%= painting.id %>">
+  <div class="grid-item animate-pop-opacity" id="<%= painting.id %>">
 
 
 
     <% if user_signed_in? %>
-      <%= link_to open_modal_painting_path(painting.id), remote: true do %>
-        <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
-      <% end %>
+    <%= link_to open_modal_painting_path(painting.id), remote: true do %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+    <% end %>
     <%  else %>
-      <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
+    <%= cl_image_tag(painting.photo.key, :width=>375, :crop=>"scale", :class=>"zoomD pointer-events-none") %>
     <% end %>
 
   </div>
@@ -71,24 +71,16 @@
 
 <% end %>
 
-
-
-
-
-<script >
+<script  >
   imagesLoaded( '.grid', function() {
     console.log("grid ok");
     var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
+    var msnry = new Masonry( elem, {
   // options
   itemSelector: '.grid-item',
   fitWidth: true,
   gutter: 10
 });
-  var elem = document.querySelectorAll('.grid-item');
-  for (let i = 0; i < elem.length; i++)  {
-    elem[i].classList.add('opacity-100', 'transition', 'delay-700');
-  }
 
   });
 
