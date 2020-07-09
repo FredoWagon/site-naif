@@ -18,8 +18,6 @@ class PaintingsController < ApplicationController
     else
       redirect_to paintings_path, :notice => "merde!"
     end
-
-
   end
 
   def update
