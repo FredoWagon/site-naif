@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 
-set :application, "naïf.com"
+set :application, "naif.com"
 set :repo_url, "https://github.com/FredoWagon/site-naif.git"
 set :git_http_username, ''
 
@@ -9,7 +9,7 @@ set :git_http_username, ''
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, "/var/www/my_app_name"
+set :deploy_to, "/home/lefr3998/xn--naf-0ma.com"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -22,10 +22,13 @@ set :git_http_username, ''
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+
+set :nginx_config_name, 'xn--naf-0ma_com'
+set :nginx_server_name, 'xn--naf-0ma.com'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
