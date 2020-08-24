@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: site_naif_production
-  username: site_naif
-  password: <%= ENV['SITE_NAIF_DATABASE_PASSWORD'] %>
+  database: lefr3998_datamat
+  username: lefr3998_lefr3998
+  password: Granolax3484
