@@ -9,7 +9,7 @@
   <% if @paintings != nil %>
   <% @paintings.each do |painting|  %>
 
-  <div class="grid-item animate-pop-opacity" id="<%= painting.id %>">
+  <div class="grid-item opacity-0" id="<%= painting.id %>" >
 
 
 
@@ -81,8 +81,37 @@
   fitWidth: true,
   gutter: 10
 });
+    function addClass(elements, className) {
+     for (var i = 0; i < elements.length; i++) {
+       var element = elements[i];
+       if (element.classList) {
+        element.classList.add(className);
+      } else {
+        console.log("probleme 2");
+      }
+    }
+  };
+  var griItem = document.getElementsByClassName('grid-item');
+  addClass(griItem, 'animate-pop-opacity');
 
-  });
+  document.addEventListener("turbolinks:before-cache", function() {
+
+    function deleteClass(elements, className) {
+     for (var i = 0; i < elements.length; i++) {
+       var element = elements[i];
+       if (element.classList.contains(className)) {
+        element.classList.remove(className);
+      } else {
+        console.log("nous avons un probleme");
+        console.log(element.classList.contains(className));
+      }
+    }
+  };
+  deleteClass(griItem, "animate-pop-opacity");
+
+})
+
+});
 
 </script>
 

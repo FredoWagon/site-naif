@@ -20,6 +20,7 @@ gem 'turbolinks', '~> 5.2.0'
 gem 'devise'
 gem 'pundit'
 gem 'active_link_to'
+gem 'turbolinks-animate'
 
 
 group :development do
